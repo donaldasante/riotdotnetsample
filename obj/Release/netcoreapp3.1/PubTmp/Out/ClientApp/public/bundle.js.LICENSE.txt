@@ -1,0 +1,8 @@
+/* Riot v4.12.4, @license MIT */
+
+/*!
+ * Font Awesome Free 5.13.0 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ */
+
+/*! (c) 2018 Andrea Giammarchi (ISC) */
