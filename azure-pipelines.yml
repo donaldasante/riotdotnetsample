@@ -17,12 +17,14 @@ variables:
 steps:
 # Use latest 3.x sdk
 - task: UseDotNet@2
+  displayName: 'Get latest dot net core 3.x'
   inputs:
     packageType: 'sdk'
     version: '3.x'
 
 # Update assembly info with build number
 - task: Assembly-Info-NetCore@2
+  displayName: 'Update assembly info with generated build number'
   inputs:
     Path: '$(Build.SourcesDirectory)/src/Templating.RiotSPA'
     FileNames: '**/*.csproj'
@@ -39,6 +41,7 @@ steps:
 
 # dotnet restore
 - task: DotNetCoreCLI@2
+  displayName: 'dotnet restore'
   inputs:
     command: 'restore'
     projects: '$(Build.SourcesDirectory)/src/Templating.RiotSPA/Templating.RiotSPA.csproj'
@@ -50,6 +53,7 @@ steps:
 
 # Publish nuget package
 - task: PublishBuildArtifacts@1
+  displayName: 'Publish nuget package'
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
@@ -57,6 +61,7 @@ steps:
 
 # Copy nuget package to feed
 - task: DotNetCoreCLI@2
+  displayName: 'Copy nuget package to feed'
   inputs:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
