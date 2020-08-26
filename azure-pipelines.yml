@@ -37,6 +37,13 @@ steps:
     FailOnWarning: false
     DisableTelemetry: false
 
+# dotnet restore
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+    projects: '$(Build.SourcesDirectory)/src/Templating.RiotSPA/Templating.RiotSPA.csproj'
+    feedsToUse: 'select'
+    
 # create nuget package
 - script: dotnet pack $(Build.SourcesDirectory)/src/Templating.RiotSPA/Templating.RiotSPA.csproj -o $(Build.ArtifactStagingDirectory) --no-build
   displayName: 'dotnet pack $(buildConfiguration)'
