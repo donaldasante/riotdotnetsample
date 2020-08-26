@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30406.217
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Templating", "Templating.RiotSPA.csproj", "{CFBB0AE3-B6A3-4D7F-A802-4B7FCAB14B77}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CFBB0AE3-B6A3-4D7F-A802-4B7FCAB14B77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFBB0AE3-B6A3-4D7F-A802-4B7FCAB14B77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFBB0AE3-B6A3-4D7F-A802-4B7FCAB14B77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFBB0AE3-B6A3-4D7F-A802-4B7FCAB14B77}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {719A89AB-9EFB-466C-82BB-E97C95439C09}
+	EndGlobalSection
+EndGlobal

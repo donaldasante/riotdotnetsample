@@ -1,0 +1,60 @@
+<weather>
+    <div class="weather">
+     <table if={state.forecasts.length > 0}>
+      <thead>
+        <tr>
+          <th>Summary</th>
+          <th>F</th>
+          <th>C</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr each={forecast in state.forecasts}>
+          <td>{forecast.summary}</td>
+          <td>{forecast.temperatureF}</td>
+          <td>{forecast.temperatureC}</td>
+          <td>{forecast.date}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div if={!state.forecasts || state.forecasts.length===0}>
+      <p>No forecasts</p>
+    </div>
+      </hr>
+    </div>
+
+  <script>
+    import axios from 'axios';
+    export default {
+      components: {
+        axios
+      },
+      onBeforeMount(props, state) {
+        // initial state
+        this.state = {
+          forecasts: []
+        }
+      },      
+      onMounted() {
+        //console.log(this);
+        let obj = this;
+        try {
+          axios.get('/api/weatherforecast').then(function(response)
+          {
+            console.log(response)
+            
+            if (response && response.status && response.status === 200 && (typeof response.data !== 'string'))
+            {
+              obj.update({
+                forecasts: [... response.data]
+              })
+            }
+          });              
+        } catch {
+          this.state.forecasts = [];
+        }
+      }
+    }
+  </script>
+</weather>

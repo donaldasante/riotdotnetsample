@@ -1,0 +1,11 @@
+<Project>
+  <PropertyGroup>
+    <Authors>Donald Asante</Authors>
+    <RepositoryUrl>https://github.com/donaldasante/riotdotnetsample.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/donaldasante/riotdotnetsample</PackageProjectUrl>
+    <Description>ASP.NET Core with Riot.js 4</Description>
+    <PackageTags>Web,API,SPA, Riot.js</PackageTags>
+    <PackageLicense></PackageLicense>
+    <Version>1.0.3</Version>   
+  </PropertyGroup>
+</Project>

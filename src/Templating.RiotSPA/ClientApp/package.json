@@ -1,0 +1,56 @@
+{
+  "name": "riotSampleBlog",
+  "authors": "Donald Asante",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "scripts": {
+    "start": "cross-env NODE_ENV=development PROXY_TARGET=https://localhost:5001 webpack-dev-server --config webpack.development.js",
+    "build-dev": "cross-env NODE_ENV=production webpack --config webpack.development.js",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.production.js"
+  },
+  "version": "1.0.0",
+  "description": "riot dot net core template",
+  "repository": {},
+  "dependencies": {
+    "axios": "^0.19.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@fortawesome/fontawesome-free": "5.13.0",
+    "@fortawesome/fontawesome-svg-core": "1.2.28",
+    "@fortawesome/free-solid-svg-icons": "5.13.0",
+    "@riotjs/cli": "^4.0.3",
+    "@riotjs/hot-reload": "^4.0.1",
+    "@riotjs/webpack-loader": "^4.0.3",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "3.0.0",
+    "cross-env": "^7.0.2",
+    "css-loader": "3.5.3",
+    "file-loader": "6.0.0",
+    "html-webpack-plugin": "4.3.0",
+    "mini-css-extract-plugin": "0.9.0",
+    "node-sass": "4.14.1",
+    "optimize-css-assets-webpack-plugin": "5.0.3",
+    "raw-loader": "^4.0.1",
+    "riot": "^4.12.2",
+    "riot-route": "3.1.4",
+    "rollup": "^2.10.2",
+    "rollup-plugin-riot": "4.0.2",
+    "sass-loader": "8.0.2",
+    "skeleton-css": "^2.0.4",
+    "terser-webpack-plugin": "3.0.1",
+    "webpack": "4.43.0",
+    "webpack-cli": "3.3.11",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "4.2.2"
+  },
+  "keywords": [
+    "riot.js",
+    "webpack",
+    "dotnetcore3x",
+    "riot v4"
+  ]
+}

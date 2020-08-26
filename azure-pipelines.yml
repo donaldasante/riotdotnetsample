@@ -1,0 +1,47 @@
+# ASP.NET Core
+# Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+name: 1.0$(Rev:.r)
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  buildConfiguration: 'Release'
+    
+steps:
+# Use latest 3.x sdk
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '3.x'
+
+# Update assembly info with build number
+- task: Assembly-Info-NetCore@2
+  inputs:
+    Path: '$(Build.SourcesDirectory)/src/Templating.RiotSPA'
+    FileNames: '**/*.csproj'
+    InsertAttributes: true
+    FileEncoding: 'auto'
+    WriteBOM: false
+    VersionNumber: '$(Build.BuildNumber)'
+    FileVersionNumber: '$(Build.BuildNumber)'
+    InformationalVersion: '$(Build.BuildNumber)'
+    LogLevel: 'verbose'
+    FailOnWarning: false
+    DisableTelemetry: false
+
+# create nuget package
+- script: dotnet pack $(Build.SourcesDirectory)/src/Templating.RiotSPA/Templating.RiotSPA.csproj -o $(Build.ArtifactStagingDirectory)
+  displayName: 'dotnet pack $(buildConfiguration)'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
