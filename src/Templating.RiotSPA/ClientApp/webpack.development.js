@@ -10,6 +10,7 @@ module.exports = merge(common, {
         clientLogLevel: 'info',
         compress: true,
         host: '0.0.0.0',
+        port: process.env.DEV_SERVER_PORT,
         https: false,
         hot: true,
         writeToDisk: true,
@@ -27,7 +28,7 @@ module.exports = merge(common, {
         progress: false,
         contentBase: path.join(__dirname, "public"),
         watchContentBase: false,
-        public: 'https://localhost:5001',
+        public: process.env.PROXY_TARGET,
         publicPath: '/',
         historyApiFallback: {
             index: 'index.html'
