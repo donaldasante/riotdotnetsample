@@ -1,9 +1,7 @@
 ﻿const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-console.log('Webpack config, ', process.env.NODE_ENV)
 module.exports = {
     entry: {
         javascript: "./app/main.js",

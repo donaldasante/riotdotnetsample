@@ -13,26 +13,34 @@ This is a dot net core 3.1 web api backend with a [riot js v4.xx](https://riot.j
 - Navigate to your chosen installation folder.
 - Enter the command to install the latest riot.dotnet template on your local PC
 ```bash
-$ dotnet new install riot.dotnet --nuget-source https://api.nuget.org/v3/index.json 
+$ dotnet new install riot.dotnet.three --nuget-source https://api.nuget.org/v3/index.json 
 ```
 - The following output is shown
-![Output of dot net new command](images/pic1.png?raw=true "Output of dot net new command")
+![Output of dot net new command](images/pic2.png?raw=true "Output of dot net new command")
 
-- To create a new project based off the template. Type dotnet new riot -n {ProjectName}. 
+- To create a new project based off the template. Type dotnet new riot-dotnet31 -n {ProjectName}. 
 ```bash
-$ dotnet new riot -n Demo
+$ dotnet new riot-dotnet31 -n Demo
 ```
 
 ## Running the demo project
 - Open the demo project in Visual Studio. 
 - Click on the green run button.
 - Assuming all the requirements are met visual studio will
-  1. build the dot net core app.
+  1. Build the dot net core app.
   2. Run npm install
   3. Start the application
-- By default the webpack devserver runs on port 8080 (http://localhost:8080) and the application runs on port 5001 (https://localhost:5001)
-- By default kestrel is the preferred webserver but you can use IIS and IIS Express.
-- If you are using IIS Express make sure to configue the PROXY_TARGET environment variable in /ClientApp/package.json to match the iisExpress application url settings in launchSettings.json.
-
   
-
+## Running demo application in docker
+- Make sure you have docker desktop (Win, Mac, Linux) installed.
+- Open CLS 
+- Goto riot application install folder containing Dockerfile.
+- To create a new docker image. Type docker build -t {img-name}. This command will read the Dockerfile and create a dotnet core/ riot SPA ready to run image.
+```bash
+$ docker build -t demo-riot-web-api-img .
+```
+- To run the newly created image. Type docker run -d -p {host-port}:{container-port} --name {container-name} {img-name}
+```bash 
+docker run -d -p 5000:80 --name demo-riot-dotnet-ui demo-riot-web-api-img
+```
+- Open any browser and goto http://localhost:5000. If the host port is not 5000 then use the port configured in the previous command.

@@ -3,8 +3,8 @@
   "author": "Donald Asante",
   "classifications": [ "Web","API","SPA" ],
   "identity": "riot.dotnet",
-  "name": "ASP.NET Core with Riot.js 4",
-  "shortName": "riot",
+  "name": "ASP.NET Core 3.1 with Riot.js 4",
+  "shortName": "riot-dotnet31",
   "tags": {
     "language": "C#",
     "type": "project"

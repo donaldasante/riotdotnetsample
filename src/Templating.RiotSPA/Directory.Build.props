@@ -3,7 +3,7 @@
     <Authors>Donald Asante</Authors>
     <RepositoryUrl>https://github.com/donaldasante/riotdotnetsample.git</RepositoryUrl>
     <PackageProjectUrl>https://github.com/donaldasante/riotdotnetsample</PackageProjectUrl>
-    <Description>ASP.NET Core with Riot.js 4</Description>
+    <Description>ASP.NET Core 3.1 with Riot.js 4</Description>
     <PackageTags>Web,API,SPA, Riot.js</PackageTags>
     <PackageLicense></PackageLicense>
   </PropertyGroup>

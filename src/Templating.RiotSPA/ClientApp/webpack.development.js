@@ -19,7 +19,6 @@ module.exports = merge(common, {
         },
         proxy: {
             '/api': {
-                target: process.env.PROXY_TARGET,
                 pathRewrite: { '^/api': '' },
                 secure: false,
                 changeOrigin: true
@@ -28,7 +27,6 @@ module.exports = merge(common, {
         progress: false,
         contentBase: path.join(__dirname, "public"),
         watchContentBase: false,
-        public: process.env.PROXY_TARGET,
         publicPath: '/',
         historyApiFallback: {
             index: 'index.html'

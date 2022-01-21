@@ -3,18 +3,18 @@
   "authors": "Donald Asante",
   "license": "MIT",
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=12.0.0"
   },
   "scripts": {
-    "start": "cross-env NODE_ENV=development PROXY_TARGET=https://localhost:5001 webpack-dev-server --config webpack.development.js",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack.development.js",
     "build-dev": "cross-env NODE_ENV=production webpack --config webpack.development.js",
     "build": "cross-env NODE_ENV=production webpack --config webpack.production.js"
   },
   "version": "1.0.0",
-  "description": "riot dot net core template",
+  "description": "riot dot net core 4.x template",
   "repository": {},
   "dependencies": {
-    "axios": ">=0.21.1"
+    "axios": "0.24.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",

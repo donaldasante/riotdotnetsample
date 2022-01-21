@@ -12,14 +12,14 @@
   <PropertyGroup>
     <SpaRoot>ClientApp\</SpaRoot>
     <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
-    <PackageId>riot.dotnet</PackageId>
+    <PackageId>riot.dotnet.three</PackageId>
     <PackageType>Template</PackageType>
     <Authors>Donald Asante</Authors>
     <RepositoryUrl>https://github.com/donaldasante/riotdotnetsample.git</RepositoryUrl>
     <PackageProjectUrl>https://github.com/donaldasante/riotdotnetsample</PackageProjectUrl>    
-    <Description>ASP.NET Core with Riot.js 4</Description>
-    <Product>ASP.NET Core with Riot.js 4</Product>
-    <PackageTags>Web,API,SPA, Riot.js</PackageTags>
+    <Description>ASP.NET Core 3.1 with Riot.js 4</Description>
+    <Product>ASP.NET Core 3.1 with Riot.js 4</Product>
+    <PackageTags>Web,API,SPA,Riot.js</PackageTags>
     <IncludeContentInPack>true</IncludeContentInPack>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <ContentTargetFolders>content</ContentTargetFolders>
@@ -69,6 +69,7 @@
   <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
     <!-- Build Target: Run webpack dist build -->
     <Message Importance="high" Text="Running npm build..." />
+	  <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
     <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build" />
 
     <!-- Include the newly-built files in the publish output -->
