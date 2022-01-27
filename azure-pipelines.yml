@@ -76,9 +76,10 @@ stages:
         
       steps:
       # download artifacts from build stage
-        - download: current
-          artifact: dropArtifacts
-          patterns: '**/*.nupkg'
+      - download: current
+        artifact: dropArtifacts
+        patterns: '**/*.nupkg'
+        
       # push to internal nuget feed if debug
       - ${{ if contains(parameters.buildConfig, 'Debug') }}:
         - task: NuGetCommand@2
