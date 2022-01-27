@@ -25,6 +25,7 @@
     <ContentTargetFolders>content</ContentTargetFolders>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>license.txt</PackageLicenseFile>
+    <PackageIcon>images\pic2.png</PackageIcon>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -42,6 +43,7 @@
   <ItemGroup>
     <None Include="..\..\README.md" Pack="true" PackagePath="$(PackageReadmeFile)"/>
     <None Include="..\..\license.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
+    <None Include="..\..\images\pic2.png" Pack="true" PackagePath="$(PackageIcon)"/>
   </ItemGroup>
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
