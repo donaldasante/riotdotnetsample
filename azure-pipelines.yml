@@ -22,7 +22,8 @@ parameters:
   - ubuntu-latest
   - macOS-latest
 
-trigger: master
+trigger:
+- master
 
 stages:
 - stage: Build
