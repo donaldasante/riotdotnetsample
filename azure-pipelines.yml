@@ -54,6 +54,14 @@ stages:
       # create nuget package
       - script: dotnet pack $(Build.SourcesDirectory)/src/Templating.RiotSPA/Templating.RiotSPA.csproj -o $(Build.ArtifactStagingDirectory) --no-build
         displayName: 'dotnet pack $(buildConfiguration)'
+      
+      # Publish nuget package
+      - task: PublishBuildArtifacts@1
+        displayName: 'Publish nuget package'
+        inputs:
+          PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+          ArtifactName: 'drop'
+          publishLocation: 'Container'
 
 - stage: Deploy
   displayName: Deploy Package
