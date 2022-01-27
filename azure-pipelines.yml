@@ -62,4 +62,4 @@ stages:
             command: 'push'
             packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
             nuGetFeedType: 'internal'
-            publishVstsFeed: 'd7c15b03-b716-41bd-9d61-4d01ca7d0c21/43af5651-da68-4b39-ae90-dd5ba3638a22'
+            publishVstsFeed: '63159940-6c78-4dfb-a75d-0c3e3809b8bb/a4cd4193-3005-41d1-9be6-eb1c688aa92d'
