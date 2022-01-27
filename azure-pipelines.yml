@@ -54,3 +54,12 @@ stages:
       # create nuget package
       - script: dotnet pack $(Build.SourcesDirectory)/src/Templating.RiotSPA/Templating.RiotSPA.csproj -o $(Build.ArtifactStagingDirectory) --no-build
         displayName: 'dotnet pack $(buildConfiguration)'
+      
+      # push to internal nuget feed if debug
+      - ${{ if contains(parameters.buildConfig, 'Debug') }}:
+        - task: NuGetCommand@2
+          inputs:
+            command: 'push'
+            packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+            nuGetFeedType: 'internal'
+            publishVstsFeed: 'd7c15b03-b716-41bd-9d61-4d01ca7d0c21/43af5651-da68-4b39-ae90-dd5ba3638a22'
