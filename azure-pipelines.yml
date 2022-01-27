@@ -97,8 +97,7 @@ stages:
           inputs:
             command: custom
             custom: nuget
-          arguments: >
-            push $(Pipeline.Workspace)/dropArtifacts/*.nupkg
-            -s $(NuGetSourceServerUrl)
-            -k $(NuGetSourceServerApiKey)
-            dotnet nuget push --source "asanteit" --api-key az <package-path>
+            arguments: >
+              push $(Pipeline.Workspace)/dropArtifacts/*.nupkg
+              -s $(NuGetSourceServerUrl)
+              -k $(NuGetSourceServerApiKey)
