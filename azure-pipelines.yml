@@ -22,7 +22,7 @@ parameters:
   - macOS-latest
 
 trigger:
-- master
+- none
 
 stages:
 - stage: Build
@@ -54,12 +54,37 @@ stages:
       # create nuget package
       - script: dotnet pack $(Build.SourcesDirectory)/src/Templating.RiotSPA/Templating.RiotSPA.csproj -o $(Build.ArtifactStagingDirectory) --no-build
         displayName: 'dotnet pack $(buildConfiguration)'
-      
+
+- stage: Deploy
+  displayName: Deploy Package
+  jobs:
+    - job: deployNuget
+      displayName: 'Deploy package to feed'
+      pool:
+        vmImage: ${{parameters.image}}
+      variables:
+        buildConfiguration: ${{parameters.buildConfig}}
+        
+      steps:
       # push to internal nuget feed if debug
       - ${{ if contains(parameters.buildConfig, 'Debug') }}:
         - task: NuGetCommand@2
+          displayName: 'Push Nuget Package to internal feed'
           inputs:
             command: 'push'
             packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
             nuGetFeedType: 'internal'
             publishVstsFeed: 'd7c15b03-b716-41bd-9d61-4d01ca7d0c21/43af5651-da68-4b39-ae90-dd5ba3638a22'
+            
+      # Copy nuget package to feed
+      - ${{ if contains(parameters.buildConfig, 'Release') }}:
+        - task: DotNetCoreCLI@2
+          displayName: 'Push Nuget Package to public nuget feed'
+          inputs:
+            command: custom
+            custom: nuget
+          arguments: >
+            push $(Build.ArtifactStagingDirectory)/*.nupkg
+            -s $(NuGetSourceServerUrl)
+            -k $(NuGetSourceServerApiKey)
+            dotnet nuget push --source "asanteit" --api-key az <package-path>
