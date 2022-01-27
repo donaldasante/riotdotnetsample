@@ -23,6 +23,7 @@
     <IncludeContentInPack>true</IncludeContentInPack>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <ContentTargetFolders>content</ContentTargetFolders>
+    <Version>1.0.0</Version>
   </PropertyGroup>
 
 
