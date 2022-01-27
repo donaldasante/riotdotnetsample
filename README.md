@@ -13,7 +13,7 @@ This is a dot net core 3.1 web api backend with a [riot js v4.xx](https://riot.j
 - Navigate to your chosen installation folder.
 - Enter the command to install the latest riot.dotnet template on your local PC
 ```bash
-$ dotnet new install riot.dotnet.three --nuget-source https://api.nuget.org/v3/index.json 
+$ dotnet new --install riot.dotnet.three --nuget-source https://api.nuget.org/v3/index.json 
 ```
 - The following output is shown
 ![Output of dot net new command](images/pic2.png?raw=true "Output of dot net new command")
